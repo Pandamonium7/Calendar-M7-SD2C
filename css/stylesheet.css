@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-size: 62.5%;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+main{
+    font-size: 1.2rem;
+    height: 75%;
+    width: 75%;
+    padding: 1rem;
+}
+
+h1,h3{
+    margin: 1rem;
+}
+
+ul{
+    display: flex;
+    width: 21rem;
+    list-style-type: none;
+    flex-wrap: wrap;
+    align-content: center;
+    align-self: center;
+}
+
+li{
+    width: 2rem;
+    height: 2rem;
+    margin:0.5rem;
+    text-align: center;
+}
