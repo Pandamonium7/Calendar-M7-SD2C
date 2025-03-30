@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -8,22 +9,50 @@ body{
     display: flex;
     height: 100vh;
     width: 100vw;
+    background-color: whitesmoke;
 }
 
 main{
     font-size: 1.2rem;
-    height: 75%;
-    width: 75%;
+    height: fit-content;
+    width: fit-content;
     padding: 1rem;
+    margin: 2rem;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 1rem;
 }
 
-h1,h3{
-    margin: 1rem;
+div{
+    display: flex;
+    width: 21rem;
+    justify-content: space-between;
+}
+
+button{
+    display: flex;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    height: 3rem;
+    width: 3rem;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+button:hover{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+h3{
+    margin: 0.5rem;
+    width: 10rem;
 }
 
 ul{
     display: flex;
-    width: 21rem;
+    width: 28rem;
     list-style-type: none;
     flex-wrap: wrap;
     align-content: center;
@@ -31,8 +60,17 @@ ul{
 }
 
 li{
-    width: 2rem;
-    height: 2rem;
+    display: flex;
+    width: 3rem;
+    height: 3rem;
     margin:0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+ul:nth-of-type(2) > li{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 0.4rem;
     text-align: center;
+    vertical-align: center;
 }
