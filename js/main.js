@@ -43,7 +43,7 @@ getCalendar = () => {
 
 
   /* array indice change to 0 after mockup */
-  allMain[1].innerHTML = `<div> 
+  allMain[0].innerHTML = `<div> 
                   <h3>${months[crntMonth]}, ${crntYear}</h3>   
                       <button id="previous">&larr;</button>
                       <button id="next">&rarr;</button>
