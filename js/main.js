@@ -1,82 +1,69 @@
-
-let main =  document.createElement("main");
-let liTag = "";
-
+const main =  document.createElement("main");
 document.body.appendChild(main);
+
+let liTag = "";
 
 const allMain =  document.querySelectorAll("main");
 
-
-
 let d = new Date();
-
-const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
-
 let crntYear = d.getFullYear();
-let crntDay = d.getDay();
 let crntMonth = d.getMonth(); 
 
-let ldayofMonth = new Date(crntYear,crntMonth + 1, 0).getDate();
-
-for (let index = 1; index <= ldayofMonth; index++) {
-  liTag += `<li> ${index} </li>`;
-}
+  getCalendar = () => 
+    {
+      const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
 
+      let fwdayofMonth = new Date(crntYear,crntMonth, 1).getDay(); //first weekday of current month
+      let ldayofMonth = new Date(crntYear,crntMonth + 1, 0).getDate(); //last day digit current month 28-30-31
+      let lwdayofMonth = new Date(crntYear,crntMonth,ldayofMonth).getDay(); //last weekday of current month
+      let ldayofPrevMonth = new Date(crntYear, crntMonth, 0).getDate(); //last day digit of prev month
 
-allMain[1].innerHTML = `<div> 
-            <h3>${months[crntMonth]}, ${crntYear}</h3>   
-                <button>&larr;</button>
-                <button>&rarr;</button>
+      console.log(ldayofPrevMonth);
 
-        </div>
+      for (let i = fwdayofMonth; i > 0; i--) {
+        liTag += `<li class="inactive">${ldayofPrevMonth - i + 1}</li>`
+      }
 
-        <ul>
-            <li>Su</li>
-            <li>Mo</li>
-            <li>Tu</li>
-            <li>We</li>
-            <li>Th</li>
-            <li>Fr</li>
-            <li>Sa</li>
-        </ul>
-        <ul>
-          ${liTag}
-        </ul>
-`;
+      for (let i = 1; i <= ldayofMonth; i++) {
+       let isToday = 
+       i === d.getDate() && 
+       crntMonth === new Date().getMonth() &&
+       crntYear === new Date().getFullYear()
+       ? ' class="active"'
+       : "";
 
+        liTag += `<li${isToday}>${i}</li>`;
+      }
 
-
-
-
-
-console.log(ldayofMonth);
-
-/*const createEle = () =>  {
-    const main = document.createElement("main");
-   // const div = document.createElement('div');
-   // const ul = document.createElement('ul');
+      for (let i = lwdayofMonth; i < 6; i++) {
+        liTag += `<li class="inactive">${i - lwdayofMonth + 1}</li>`
+      }
 
 
+      /* array indice change to 0 after mockup */
+      allMain[1].innerHTML = `<div> 
+                  <h3>${months[crntMonth]}, ${crntYear}</h3>   
+                      <button class="previous">&larr;</button>
+                      <button class="next">&rarr;</button>
 
-}
+              </div>
 
-createEle();
-/*const createCalendar = () => {
+              <ul>
+                  <li>Su</li>
+                  <li>Mo</li>
+                  <li>Tu</li>
+                  <li>We</li>
+                  <li>Th</li>
+                  <li>Fr</li>
+                  <li>Sa</li>
+              </ul>
+              <ul>
+                ${liTag}
+              </ul>
+      `;
+    }
+getCalendar();
 
-}
-
-createCalendar();
-//console.log(months[crntMonth]);
-
-var arr = ["ul", "li", "strong", "em", "u"]
-
-let el = arr.reduceRight((el, n) => {
-  let d = document.createElement(n)
-  d.appendChild(el)
-  return d
-}, document.createTextNode("Text Here"))
-
-document.getElementById('container').appendChild(el)
-
- */
+const allBtn = document.querySelectorAll(".previous, .next");
+console.log(allBtn);
