@@ -15,10 +15,7 @@ getCalendar = () => {
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
-  const hours = d.getHours();
-  const minutes = d.getMinutes();
-  const seconds = d.getSeconds();
-  let clock = `${hours}:${minutes}:${seconds}`;
+ 
 
   let fwdayofMonth = new Date(crntYear, crntMonth, 1).getDay(); //first weekday of current month
   let ldayofMonth = new Date(crntYear, crntMonth + 1, 0).getDate(); //last day digit current month 28-30-31
@@ -54,7 +51,7 @@ getCalendar = () => {
   allMain[0].innerHTML = `
                 <div> 
                   <h3>${months[crntMonth]}, ${crntYear}</h3>
-                  <h3>${clock}</h3>
+                  <h3></h3>
                     <div>   
                       <button id="previous">&larr;</button>
                       <button id="next">&rarr;</button>
